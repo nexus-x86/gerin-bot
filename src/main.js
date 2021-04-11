@@ -1,5 +1,6 @@
 //const Discord = require("discord.js");
 const { CommandoClient } = require("discord.js-commando");
+const snoowrap = require('snoowrap');
 const path = require("path");
 const packageData = require('./config.json');
 const TOKEN = packageData.token;
@@ -11,6 +12,14 @@ const client = new CommandoClient({
 });
 const Enmap = require("enmap");
 client.warnsEnmap = new Enmap({name: "warns"});
+client.musicDispatcher = undefined;
+client.connection = undefined;
+client.reddit = new snoowrap({
+  userAgent: 'u/NexusValiant',
+  clientId: packageData.redditClientID,
+  clientSecret: packageData.redditClientSecret,
+  refreshToken: "",
+});
 
 
 client.registry
