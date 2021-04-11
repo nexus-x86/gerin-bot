@@ -1,7 +1,24 @@
 {
+  "name": "radius",
+  "version": "1.0.1",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexus-x86/radius.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nexus-x86/radius/issues"
+  },
+  "homepage": "https://github.com/nexus-x86/radius#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "discord.js-commando": "^0.12.3",
+    "discord.js-commando": "github:discordjs/Commando",
     "enmap": "^5.8.4",
     "snoowrap": "^1.22.0",
     "ytdl-core": "^4.5.0"
