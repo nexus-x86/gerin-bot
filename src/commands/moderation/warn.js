@@ -25,7 +25,7 @@ module.exports = class warnCommand extends Command {
 		});
 	}
 
-    run(message, {userWarned, reason}) {
+    async run(message, {userWarned, reason}) {
 		const warnsEnmap = this.client.warnsEnmap
 		if (warnsEnmap.get(message.guild.id + "_" + userWarned.id) == undefined) {
 			warnsEnmap.set(message.guild.id + "_" + userWarned.id,[])
@@ -38,6 +38,10 @@ module.exports = class warnCommand extends Command {
 			assigner: message.author.username
 		});
 
+		await userWarned.user.send("You have been warned for " + "**"+reason+"**")
+		.catch(err => {
+			message.say("Unabled to dm warned user because `" + err + "`");
+		});
 		return message.say(userWarned.user.username + " has been warned for " + "**" + reason + "**");
 	}
 };
