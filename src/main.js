@@ -1,8 +1,8 @@
 //const Discord = require("discord.js");
 const { CommandoClient } = require("discord.js-commando");
-const snoowrap = require('snoowrap');
+const snoowrap = require("snoowrap");
 const path = require("path");
-const packageData = require('./config.json');
+const packageData = require("./config.json");
 const TOKEN = packageData.token;
 const prefix = packageData.prefix;
 const client = new CommandoClient({
@@ -11,16 +11,16 @@ const client = new CommandoClient({
   invite: "https://discord.gg/FernczgPfd",
 });
 const Enmap = require("enmap");
-client.warnsEnmap = new Enmap({name: "warns"});
+client.warnsEnmap = new Enmap({ name: "warns" });
 client.musicDispatcher = undefined;
 client.connection = undefined;
+client.musicQueue = [];
 client.reddit = new snoowrap({
-  userAgent: 'u/NexusValiant',
+  userAgent: "u/NexusValiant",
   clientId: packageData.redditClientID,
   clientSecret: packageData.redditClientSecret,
   refreshToken: "",
 });
-
 
 client.registry
   .registerDefaultTypes()

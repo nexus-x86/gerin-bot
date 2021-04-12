@@ -17,10 +17,22 @@
   },
   "homepage": "https://github.com/nexus-x86/radius#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.5.0",
     "discord.js": "^12.5.3",
-    "discord.js-commando": "github:discordjs/Commando",
+    "discord.js-commando": "^0.12.3",
     "enmap": "^5.8.4",
+    "ffmpeg-static": "^4.3.0",
+    "node-fetch": "^2.6.1",
     "snoowrap": "^1.22.0",
     "ytdl-core": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "prettier": "2.2.1",
+    "standard": "^16.0.3"
   }
 }
