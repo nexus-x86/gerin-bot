@@ -12,9 +12,15 @@ const client = new CommandoClient({
 });
 const Enmap = require("enmap");
 client.warnsEnmap = new Enmap({ name: "warns" });
-client.musicDispatcher = undefined;
-client.connection = undefined;
-client.musicQueue = [];
+client.music = {
+  /*
+  guildid = {
+    dispatcher: [dispatcher],
+    connection: [connection],
+    queue: [array of obj's]
+  }
+  */
+}
 client.reddit = new snoowrap({
   userAgent: "u/NexusValiant",
   clientId: packageData.redditClientID,

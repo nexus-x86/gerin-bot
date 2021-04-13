@@ -12,7 +12,7 @@ module.exports = class queueCommand extends Command {
   }
 
   async run(message) {
-    const str = this.client.musicQueue
+    const str = this.client.music[message.guild.id].queue
       .map(
         (song, i) =>
           `**Song #${i}: ${song.title}** | *Requestor: ${song.requestor.username}*`

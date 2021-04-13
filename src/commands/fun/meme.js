@@ -17,7 +17,7 @@ module.exports = class memeCommand extends Command {
     fetch(memeAPI)
       .then((res) => res.json())
       .then((json) => {
-        message.channel.send(json["preview"][1]);
+        message.channel.send(json["preview"][3]);
       });
   }
 };

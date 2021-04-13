@@ -12,14 +12,15 @@ module.exports = class stopCommand extends Command {
   }
 
   async run(message) {
-    var dispatcher = this.client.musicDispatcher;
+    var dispatcher = this.client.music[message.guild.id].dispatcher;
     if (dispatcher == undefined) {
       message.reply("I am not playing any songs right now.");
     }
-    await dispatcher.destroy();
-    this.client.connection.disconnect();
+    await this.client.music[message.guild.id].dispatcher.destroy();
+    this.client.music[message.guild.id].connection.disconnect();
+    this.client.music[message.guild.id].connection = undefined;
     message.reply("Stopped playing!");
-    this.client.musicDispatcher = undefined;
-    this.client.musicQueue = [];
+    this.client.music[message.guild.id].dispatcher = undefined;
+    this.client.music[message.guild.id].queue = []
   }
 };
