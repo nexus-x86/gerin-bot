@@ -30,6 +30,9 @@ module.exports = class playCommand extends Command {
     }
     const musicObject = this.client.music[message.guild.id].queue[0];
     message.channel.send(
+      `Removed ${musicObject["title"]} from queue.`
+    );
+    message.channel.send(
       `Playing ${musicObject["title"]}. Requested by ${musicObject["requestor"].username}`
     );
     this.client.music[message.guild.id].queue.shift();
@@ -43,33 +46,6 @@ module.exports = class playCommand extends Command {
       this.client.music[message.guild.id].dispatcher = undefined;
       this.client.music[message.guild.id].queue = []
     })
-    /*
-    if (this.client.connection != undefined) {
-      console.log("Already playing a song");
-      return; // already playing a song
-    }
-    const connection = await message.member.voice.channel.join();
-    if (this.client.musicQueue[message.guild.id].length == 0) {
-      console.log("Queue has ended");
-      return; // Queue has ended
-    }
-    const musicObject = this.client.musicQueue[message.guild.id][0];
-    message.channel.send(
-      `Playing ${musicObject["title"]}. Requested by ${musicObject["requestor"].username}`
-    );
-    this.client.musicQueue[message.guild.id].shift();
-
-    this.client.musicDispatcher = await connection.play(
-      ytdl(musicObject["url"], { quality: "highestaudio" })
-    );
-    this.client.connection = connection;
-    this.client.musicDispatcher.on("finish", () => {
-      this.client.musicDispatcher.destroy();
-      this.client.musicDispatcher = undefined;
-      this.client.connection = undefined;
-      this.songPlay(message);
-    });
-    */
   }
 
   async run(message, { url }) {

@@ -8,7 +8,7 @@ const prefix = packageData.prefix;
 const client = new CommandoClient({
   commandPrefix: prefix,
   owner: "752592264231911561",
-  invite: "https://discord.gg/FernczgPfd",
+  invite: "https://discord.gg/xRjYGDUUgX",
 });
 const Enmap = require("enmap");
 client.warnsEnmap = new Enmap({ name: "warns" });

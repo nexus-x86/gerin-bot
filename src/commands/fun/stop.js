@@ -14,7 +14,7 @@ module.exports = class stopCommand extends Command {
   async run(message) {
     var dispatcher = this.client.music[message.guild.id].dispatcher;
     if (dispatcher == undefined) {
-      message.reply("I am not playing any songs right now.");
+      return message.reply("I am not playing any songs right now.");
     }
     await this.client.music[message.guild.id].dispatcher.destroy();
     this.client.music[message.guild.id].connection.disconnect();

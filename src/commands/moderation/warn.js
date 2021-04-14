@@ -8,7 +8,6 @@ module.exports = class warnCommand extends Command {
       group: "moderation",
       memberName: "warn",
       description: "[prefix]warn [mention] [reason]",
-      clientPermissions: ["ADMINISTRATOR"],
       userPermissions: ["MANAGE_MESSAGES", "MANAGE_CHANNELS"],
       args: [
         {
