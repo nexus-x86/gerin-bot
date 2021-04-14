@@ -39,7 +39,7 @@ module.exports = class warnCommand extends Command {
     });
 
     await userWarned.user
-      .send("You have been warned for " + "**" + reason + "**")
+      .send("You have been warned for " + "**" + reason + "**" + " in **" + message.guild.name + "**")
       .catch((err) => {
         message.say("Unabled to dm warned user because `" + err + "`");
       });

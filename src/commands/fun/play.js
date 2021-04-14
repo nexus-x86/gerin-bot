@@ -37,14 +37,11 @@ module.exports = class playCommand extends Command {
       ytdl(musicObject["url"], { quality: "highestaudio" })
     )
     this.client.music[message.guild.id].dispatcher.on("finish", () => {
-      // this.client.musicDispatcher.destroy();
-      // this.client.musicDispatcher = undefined;
-      // this.client.connection = undefined;
-      // this.songPlay(message);
-      this.client.music[message.guild.id].dispatcher.destroy();
+      await this.client.music[message.guild.id].dispatcher.destroy();
+      this.client.music[message.guild.id].connection.disconnect();
+      this.client.music[message.guild.id].connection = undefined;
       this.client.music[message.guild.id].dispatcher = undefined;
-      this.client.music[message.guild.id].connection = undefined 
-      this.songPlay(message)
+      this.client.music[message.guild.id].queue = []
     })
     /*
     if (this.client.connection != undefined) {
