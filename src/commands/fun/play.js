@@ -36,7 +36,7 @@ module.exports = class playCommand extends Command {
     this.client.music[message.guild.id].dispatcher = await this.client.music[message.guild.id].connection.play(
       ytdl(musicObject["url"], { quality: "highestaudio" })
     )
-    this.client.music[message.guild.id].dispatcher.on("finish", () => {
+    this.client.music[message.guild.id].dispatcher.on("finish", async () => {
       await this.client.music[message.guild.id].dispatcher.destroy();
       this.client.music[message.guild.id].connection.disconnect();
       this.client.music[message.guild.id].connection = undefined;
