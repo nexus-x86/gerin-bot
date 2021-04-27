@@ -8,8 +8,8 @@ module.exports = class unlockCommand extends Command {
       memberName: "unlock",
       description:
         "unlock a locked channel",
-      clientPermissions: ["MANAGE_CHANNELS"],
-      userPermissions: ["MANAGE_CHANNELS"],
+      clientPermissions: ["MANAGE_CHANNELS","MANAGE_ROLES"],
+      userPermissions: ["MANAGE_CHANNELS","MANAGE_ROLES"],
       args: [
         {
           key: "channel",
