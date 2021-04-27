@@ -8,8 +8,8 @@ module.exports = class memeCommand extends Command {
       name: "meme",
       aliases: [],
       group: "fun",
-      memberName: "info",
-      description: "[prefix]info",
+      memberName: "meme",
+      description: "this command fetch's a random meme and gives it to you",
     });
   }
 

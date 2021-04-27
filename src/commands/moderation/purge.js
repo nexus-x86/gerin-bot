@@ -7,7 +7,7 @@ module.exports = class purgeCommand extends Command {
       aliases: ["clear"],
       group: "moderation",
       memberName: "purge",
-      description: "[prefix]purge [number]",
+      description: "deletes a specified amount of messages in a channel",
       clientPermissions: ["MANAGE_MESSAGES"],
       userPermissions: ["MANAGE_MESSAGES"],
       args: [

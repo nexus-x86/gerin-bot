@@ -8,6 +8,7 @@ module.exports = class stopCommand extends Command {
       memberName: "stop",
       description: "[prefix]stop",
       userPermissions: ["MUTE_MEMBERS"],
+      clientPermissions: ["MUTE_MEMBERS"],
     });
   }
 

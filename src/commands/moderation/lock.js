@@ -7,9 +7,9 @@ module.exports = class lockCommand extends Command {
       group: "moderation",
       memberName: "lock",
       description:
-        "[prefix]lock [optional: channel (will default to current channel)]",
-      clientPermissions: ["MANAGE_CHANNELS"],
-      userPermissions: ["MANAGE_CHANNELS"],
+        "lock a channel such that @everyone can't speak in the channel",
+      clientPermissions: ["MANAGE_CHANNELS","MANAGE_PERMISSIONS"],
+      userPermissions: ["MANAGE_CHANNELS","MANAGE_PERMISSIONS"],
       args: [
         {
           key: "channel",

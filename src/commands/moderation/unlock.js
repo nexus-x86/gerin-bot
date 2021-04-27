@@ -7,7 +7,7 @@ module.exports = class unlockCommand extends Command {
       group: "moderation",
       memberName: "unlock",
       description:
-        "[prefix]unlock [optional: channel (will default to current channel)]",
+        "unlock a locked channel",
       clientPermissions: ["MANAGE_CHANNELS"],
       userPermissions: ["MANAGE_CHANNELS"],
       args: [

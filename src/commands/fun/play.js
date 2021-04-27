@@ -9,7 +9,7 @@ module.exports = class playCommand extends Command {
       name: "play",
       group: "fun",
       memberName: "play",
-      description: "[prefix]play [youtube url]",
+      description: "play a youtube video in a voice channel with this command",
       args: [
         {
           key: "url",

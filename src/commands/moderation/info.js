@@ -8,7 +8,7 @@ module.exports = class infoCommand extends Command {
       aliases: ["about"],
       group: "moderation",
       memberName: "info",
-      description: "[prefix]info",
+      description: "learn more about the bot",
     });
   }
 

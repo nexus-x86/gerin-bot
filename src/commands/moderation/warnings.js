@@ -8,9 +8,9 @@ module.exports = class warningsCommand extends Command {
       aliases: ["infractions"],
       group: "moderation",
       memberName: "warnings",
-      description: "[prefix]warnings [mention]",
-      clientPermissions: ["ADMINISTRATOR"],
-      userPermissions: ["MANAGE_MESSAGES", "MANAGE_CHANNELS"],
+      description: "see the warnings of people",
+      clientPermissions: ["MANAGE_MESSAGES"],
+      userPermissions: ["MANAGE_MESSAGES"],
       args: [
         {
           key: "userMention",

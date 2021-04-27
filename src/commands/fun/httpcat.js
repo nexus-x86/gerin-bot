@@ -69,7 +69,7 @@ module.exports = class httpCatCommand extends Command {
       name: "httpcat",
       group: "fun",
       memberName: "httpcat",
-      description: "[prefix]httpcat",
+      description: "mhmm yes much cat. ",
     });
   }
 

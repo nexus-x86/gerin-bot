@@ -7,7 +7,7 @@ module.exports = class kickCommand extends Command {
       aliases: ["exile"],
       group: "moderation",
       memberName: "kick",
-      description: "[prefix]kick [mention] [reason]",
+      description: "kick a person",
       clientPermissions: ["KICK_MEMBERS"],
       userPermissions: ["KICK_MEMBERS"],
       args: [

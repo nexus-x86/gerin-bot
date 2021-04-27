@@ -7,9 +7,9 @@ module.exports = class delwarnCommand extends Command {
       aliases: ["deletewarn"],
       group: "moderation",
       memberName: "delwarn",
-      description: "[prefix]delwarn [mention] [warn#]",
-      clientPermissions: ["ADMINISTRATOR"],
-      userPermissions: ["MANAGE_MESSAGES", "MANAGE_CHANNELS"],
+      description: "delete the warning of someone",
+      clientPermissions: ["MANAGE_MESSAGES"],
+      userPermissions: ["MANAGE_MESSAGES"],
       args: [
         {
           key: "userWarned",

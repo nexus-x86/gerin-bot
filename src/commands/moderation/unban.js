@@ -7,7 +7,7 @@ module.exports = class unbanCommand extends Command {
       name: "unban",
       group: "moderation",
       memberName: "unban",
-      description: "[prefix]unban [mention]",
+      description: "unban people",
       clientPermissions: ["BAN_MEMBERS"],
       userPermissions: ["BAN_MEMBERS"],
       args: [

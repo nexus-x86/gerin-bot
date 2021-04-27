@@ -7,7 +7,7 @@ module.exports = class queueCommand extends Command {
       name: "queue",
       group: "fun",
       memberName: "queue",
-      description: "[prefix]queue",
+      description: "When you use the >play command you can see what songs are coming up next with this command",
     });
   }
 
