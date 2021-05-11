@@ -1,4 +1,9 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class warnCommand extends Command {
   constructor(client) {
@@ -7,7 +12,7 @@ module.exports = class warnCommand extends Command {
       aliases: ["warning"],
       group: "moderation",
       memberName: "warn",
-      description: "warn those that wrong you",
+      description: "warn those that break the rules",
       userPermissions: ["MANAGE_MESSAGES"],
       args: [
         {
@@ -25,12 +30,11 @@ module.exports = class warnCommand extends Command {
   }
 
   async run(message, { userWarned, reason }) {
-    const warnsEnmap = this.client.warnsEnmap;
+    var warnsEnmap = this.client.warnsEnmap;
     if (warnsEnmap.get(message.guild.id + "_" + userWarned.id) == undefined) {
       warnsEnmap.set(message.guild.id + "_" + userWarned.id, []);
     }
 
-    //warnsEnmap.push(message.guild.id + "_" + userWarned.id, reason);
     warnsEnmap.push(message.guild.id + "_" + userWarned.id, {
       reason: reason,
       time: new Date(),

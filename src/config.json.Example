@@ -1,6 +1,4 @@
 {
     "token":"insertTokenHere",
-    "prefix":"insertPrefixHere",
-    "redditClientID":"",
-    "redditClientSecret":""
+    "prefix":"insertPrefixHere"
 }

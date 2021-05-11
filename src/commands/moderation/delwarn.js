@@ -1,4 +1,9 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class delwarnCommand extends Command {
   constructor(client) {
@@ -26,18 +31,15 @@ module.exports = class delwarnCommand extends Command {
   }
 
   run(message, { userWarned, warnNum }) {
-    const warnsEnmap = this.client.warnsEnmap;
+    var warnsEnmap = this.client.warnsEnmap;
 
-    const warns = warnsEnmap.get(message.guild.id + "_" + userWarned.id);
+    var warns = warnsEnmap.get(message.guild.id + "_" + userWarned.id);
 
     if (!warns?.[warnNum]) {
       return message.say("Requested warning does not exist.");
     }
 
-    //delete warns[warnNum]
     warnsEnmap.delete(message.guild.id + "_" + userWarned.id, warns[warnNum]);
-
-    //warnsEnmap.set(message.guild.id + "_" + userWarned.id, warns)
 
     return message.say("Warn removed successfully.");
   }

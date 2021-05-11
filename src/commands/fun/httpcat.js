@@ -1,4 +1,9 @@
-const cats = [
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var cats = [
   100,
   101,
   102,
@@ -61,7 +66,7 @@ const cats = [
   599,
 ];
 
-const { Command } = require("discord.js-commando");
+var { Command } = require("discord.js-commando");
 
 module.exports = class httpCatCommand extends Command {
   constructor(client) {

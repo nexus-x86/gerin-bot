@@ -1,4 +1,9 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class lockCommand extends Command {
   constructor(client) {
@@ -13,7 +18,7 @@ module.exports = class lockCommand extends Command {
       args: [
         {
           key: "channel",
-          prompt: "Mention the user you want to kick",
+          prompt: "Enter the channel you want to lock",
           type: "channel",
           default: " ",
         },

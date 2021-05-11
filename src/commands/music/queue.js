@@ -1,18 +1,24 @@
-const { Command } = require("discord.js-commando");
-const discordjs = require("discord.js");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
+var discordjs = require("discord.js");
 
 module.exports = class queueCommand extends Command {
   constructor(client) {
     super(client, {
       name: "queue",
-      group: "fun",
+      aliases: ["q"],
+      group: "music",
       memberName: "queue",
-      description: "When you use the >play command you can see what songs are coming up next with this command",
+      description: "See the songs currently in the queue!",
     });
   }
 
   async run(message) {
-    const str = this.client.music[message.guild.id].queue
+    var str = this.client.music[message.guild.id].queue
       .map(
         (song, i) =>
           `**Song #${i}: ${song.title}** | *Requestor: ${song.requestor.username}*`
@@ -21,7 +27,7 @@ module.exports = class queueCommand extends Command {
     if (str == "") {
       return message.reply("There are no songs in the queue at the moment.");
     }
-    const embed = new discordjs.MessageEmbed()
+    var embed = new discordjs.MessageEmbed()
       .setDescription(str)
       .setColor("#FF0000");
     return message.channel.send(embed);

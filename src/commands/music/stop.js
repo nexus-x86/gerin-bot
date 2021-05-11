@@ -1,12 +1,18 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class stopCommand extends Command {
   constructor(client) {
     super(client, {
       name: "stop",
-      group: "fun",
+      aliases: ["s"],
+      group: "music",
       memberName: "stop",
-      description: "[prefix]stop",
+      description: "Clears queue and makes bot stop playing music",
       userPermissions: ["MUTE_MEMBERS"],
       clientPermissions: ["MUTE_MEMBERS"],
     });
@@ -17,7 +23,8 @@ module.exports = class stopCommand extends Command {
       return message.reply("I am not playing any songs right now.");
     }
     await this.client.music[message.guild.id].dispatcher.destroy();
-    this.client.music[message.guild.id].connection.disconnect();
+    await this.client.music[message.guild.id].connection.disconnect();
+    this.client.music[message.guild.id].playingSong = false;
     this.client.music[message.guild.id].connection = undefined;
     message.reply("Stopped playing!");
     this.client.music[message.guild.id].dispatcher = undefined;

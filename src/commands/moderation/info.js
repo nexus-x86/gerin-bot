@@ -1,5 +1,10 @@
-const { Command } = require("discord.js-commando");
-const Discord = require("discord.js");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
+var Discord = require("discord.js");
 
 module.exports = class infoCommand extends Command {
   constructor(client) {
@@ -13,7 +18,7 @@ module.exports = class infoCommand extends Command {
   }
 
   async run(message) {
-    const embed = new Discord.MessageEmbed()
+    var embed = new Discord.MessageEmbed()
       .setColor("#0099ff")
       .setTitle("Radius")
       .setURL("https://discord.gg/xRjYGDUUgX")

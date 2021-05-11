@@ -1,4 +1,9 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class kickCommand extends Command {
   constructor(client) {

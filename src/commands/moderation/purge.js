@@ -1,10 +1,15 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class purgeCommand extends Command {
   constructor(client) {
     super(client, {
       name: "purge",
-      aliases: ["clear"],
+      aliases: ["clear","clean"],
       group: "moderation",
       memberName: "purge",
       description: "deletes a specified amount of messages in a channel",

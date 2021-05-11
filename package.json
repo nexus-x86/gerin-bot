@@ -24,7 +24,7 @@
     "ffmpeg-static": "^4.3.0",
     "node-fetch": "^2.6.1",
     "snoowrap": "^1.22.0",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.7.0"
   },
   "devDependencies": {
     "eslint": "^7.24.0",

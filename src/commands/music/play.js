@@ -1,13 +1,19 @@
-const { Command } = require("discord.js-commando");
-const ytdl = require("ytdl-core");
-const fetch = require("node-fetch");
-const baseURL = "https://www.youtube.com/oembed?format=json&url=";
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
+var ytdl = require("ytdl-core");
+var fetch = require("node-fetch");
+var baseURL = "https://www.youtube.com/oembed?format=json&url=";
 
 module.exports = class playCommand extends Command {
   constructor(client) {
     super(client, {
       name: "play",
-      group: "fun",
+      aliases: ["p"],
+      group: "music",
       memberName: "play",
       description: "play a youtube video in a voice channel with this command",
       args: [
@@ -21,14 +27,15 @@ module.exports = class playCommand extends Command {
   }
 
   async songPlay(message) {
-    if (this.client.music[message.guild.id].connection != undefined) {
-      return console.log("Already playing a song.");
+    if (this.client.music[message.guild.id].playingSong == true) {
+      return console.log("Already playing a song." + Date.now());
     }
     this.client.music[message.guild.id].connection = await message.member.voice.channel.join()
     if (this.client.music[message.guild.id].queue.length == 0) {
       return console.log("Queue has ended");
     }
-    const musicObject = this.client.music[message.guild.id].queue[0];
+    this.client.music[message.guild.id].playingSong = true;
+    var musicObject = this.client.music[message.guild.id].queue[0];
     message.channel.send(
       `Removed ${musicObject["title"]} from queue.`
     );
@@ -40,11 +47,16 @@ module.exports = class playCommand extends Command {
       ytdl(musicObject["url"], { quality: "highestaudio" })
     )
     this.client.music[message.guild.id].dispatcher.on("finish", async () => {
-      await this.client.music[message.guild.id].dispatcher.destroy();
-      this.client.music[message.guild.id].connection.disconnect();
-      this.client.music[message.guild.id].connection = undefined;
-      this.client.music[message.guild.id].dispatcher = undefined;
-      this.client.music[message.guild.id].queue = []
+      if (this.client.music[message.guild.id].queue.length == 0) {
+        await this.client.music[message.guild.id].dispatcher.destroy();
+        this.client.music[message.guild.id].connection.disconnect();
+        this.client.music[message.guild.id].connection = undefined;
+        this.client.music[message.guild.id].dispatcher = undefined;
+        this.client.music[message.guild.id].playingSong = false;
+      } else {
+        this.client.music[message.guild.id].playingSong = false;
+        this.songPlay(message);
+      }
     })
   }
 
@@ -68,7 +80,7 @@ module.exports = class playCommand extends Command {
           return;
         }
         message.channel.send(`Added ${body["title"]} to the song queue. `);
-        const songRequestObject = {
+        var songRequestObject = {
           title: body["title"],
           url: url,
           requestor: message.author,

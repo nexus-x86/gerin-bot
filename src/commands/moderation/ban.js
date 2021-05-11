@@ -1,13 +1,18 @@
-const { Command } = require("discord.js-commando");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
 
 module.exports = class banCommand extends Command {
   constructor(client) {
     super(client, {
       name: "ban",
-      aliases: [""],
+      aliases: ["banhammer"],
       group: "moderation",
       memberName: "ban",
-      description: "ban those you dislike",
+      description: "ban people from your server",
       clientPermissions: ["BAN_MEMBERS"],
       userPermissions: ["BAN_MEMBERS"],
       args: [

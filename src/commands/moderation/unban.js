@@ -1,5 +1,10 @@
-const { Command } = require("discord.js-commando");
-const discordjs = require("discord.js");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
+var discordjs = require("discord.js");
 
 module.exports = class unbanCommand extends Command {
   constructor(client) {
@@ -24,7 +29,7 @@ module.exports = class unbanCommand extends Command {
     await message.guild.members
       .unban(user)
       .then((_v) => {
-        const embed = new discordjs.MessageEmbed()
+        var embed = new discordjs.MessageEmbed()
           .setDescription("Unban successful!.")
           .setColor("#00FF00");
         return message.channel.send(embed);

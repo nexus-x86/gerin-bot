@@ -1,11 +1,16 @@
-const { Command } = require("discord.js-commando");
-const discordjs = require("discord.js");
+/*
+  Developed by nexus_x86
+  Licensed under MIT license.
+*/
+
+var { Command } = require("discord.js-commando");
+var discordjs = require("discord.js");
 
 module.exports = class warningsCommand extends Command {
   constructor(client) {
     super(client, {
       name: "warnings",
-      aliases: ["infractions"],
+      aliases: ["infractions","warns"],
       group: "moderation",
       memberName: "warnings",
       description: "see the warnings of people",
@@ -22,33 +27,33 @@ module.exports = class warningsCommand extends Command {
   }
 
   run(message, { userMention }) {
-    const warnsEnmap = this.client.warnsEnmap;
+    var warnsEnmap = this.client.warnsEnmap;
     if (warnsEnmap.get(message.guild.id + "_" + userMention.id) == undefined) {
-      const embed = new discordjs.MessageEmbed()
+      var embed = new discordjs.MessageEmbed()
         .setColor("#FF0000")
         .setAuthor(
           userMention.user.username + " has 0 warnings.",
           userMention.user.displayAvatarURL(),
-          "https://discord.gg/FernczgPfd"
+          "https://discord.gg/xRjYGDUUgX"
         );
       return message.channel.send(embed);
     }
-    const warnsArray = warnsEnmap.get(message.guild.id + "_" + userMention.id);
+    var warnsArray = warnsEnmap.get(message.guild.id + "_" + userMention.id);
 
-    const warnsStr = warnsArray
+    var warnsStr = warnsArray
       .map(
         (warn, i) =>
           `**Warn #${i}** | *Moderator: ${warn.assigner}* | *Date: ${warn.time}*| \n ${warn.reason}`
       )
       .join("\n");
 
-    const embed = new discordjs.MessageEmbed()
+    var embed = new discordjs.MessageEmbed()
       .setDescription(warnsStr)
       .setColor("#FF0000")
       .setAuthor(
         userMention.user.username + " has " + warnsArray.length + " warnings.",
         userMention.user.displayAvatarURL(),
-        "https://discord.gg/FernczgPfd"
+        "https://discord.gg/xRjYGDUUgX"
       );
     return message.channel.send(embed);
   }
