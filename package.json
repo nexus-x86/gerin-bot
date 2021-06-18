@@ -1,9 +1,15 @@
 {
-  "dependencies": {
-    "@iamtraction/google-translate": "^1.1.2",
-    "discord.js": "^12.5.3",
-    "discord.js-commando": "^0.12.3",
-    "enmap": "^5.8.5",
-    "google-translate-open-api": "^1.3.7"
-  }
+    "dependencies": {
+        "@discordjs/opus": "^0.5.3",
+        "@iamtraction/google-translate": "^1.1.2",
+        "discord.js": "^12.5.3",
+        "discord.js-commando": "^0.12.3",
+        "enmap": "^5.8.5",
+        "ffmpeg-static": "^4.3.0",
+        "google-translate-open-api": "^1.3.7",
+        "ytdl-core": "^4.8.2"
+    },
+    "devDependencies": {
+        "prettier": "2.3.1"
+    }
 }
