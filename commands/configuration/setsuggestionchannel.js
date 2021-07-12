@@ -21,6 +21,8 @@ module.exports = class setsuggestionchannelCommand extends Command {
 
     async run(message, { c }) {
         configEnmap.set("suggestionchannel_" + message.guild.id, c.id);
-        return message.channel.send("The suggestion channel has been set to " + c.toString());
+        return message.channel.send(
+            "The suggestion channel has been set to " + c.toString()
+        );
     }
 };

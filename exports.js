@@ -2,7 +2,7 @@ const translate = require("@iamtraction/google-translate");
 const Enmap = require("enmap");
 const cEnmap = new Enmap({ name: "config" });
 const { CommandoClient } = require("discord.js-commando");
-const { Intents } = require('discord.js');
+const { Intents } = require("discord.js");
 const configjson = require("./config.json");
 
 module.exports = {
