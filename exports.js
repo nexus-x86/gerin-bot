@@ -2,6 +2,7 @@ const translate = require("@iamtraction/google-translate");
 const Enmap = require("enmap");
 const cEnmap = new Enmap({ name: "config" });
 const { CommandoClient } = require("discord.js-commando");
+const { Intents } = require('discord.js');
 const configjson = require("./config.json");
 
 module.exports = {
@@ -29,6 +30,7 @@ module.exports = {
     client: new CommandoClient({
         commandPrefix: configjson.prefix,
         owner: "752592264231911561",
-        invite: "https://discord.gg/xRjYGDUUgX"
+        invite: "https://discord.gg/xRjYGDUUgX",
+        intents: [Intents.ALL]
     })
 };
